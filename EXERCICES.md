@@ -26,3 +26,24 @@ Listes des points bonus
 
 Listes des point bonus si vous avez le projet sur github
 - [ ] Ajouter une Github Action qui execute phpstan/phpcs/phpunit
+
+
+## Les commandes pour les exercices
+```bash
+docker compose run --rm php bin/console make:entity
+docker compose run --rm php bin/console make:migration
+docker compose run --rm php bin/console doctrine:migrations:migrate
+docker compose run --rm php bin/console make:controller
+docker compose run --rm php bin/console make:command
+
+```
+dans le dossier Command, quand il ajoute des données il le fais avec faker
+# Pour le script bash si il ne marche pas 
+```bash
+#!/bin/bash
+docker compose run --rm php bin/console doctrine:schema:validate
+docker compose run --rm php bin/console doctrine:fixtures:load --no-interaction
+docker compose run --rm php bin/phpunit
+```
+
+
